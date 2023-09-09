@@ -13,7 +13,7 @@ const { log } = require("forever");
 
 router.get("/", async function (req, res) {
   try {
-    // console.log('뭘까')
+    // console.log('뭘까')d
     const sql = await database(`SELECT * FROM nia_result ORDER BY keyIndex desc`)
     sqlResult = sql.rows;
     console.log('ddd', sqlResult);
