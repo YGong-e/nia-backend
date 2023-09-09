@@ -1,8 +1,8 @@
 module.exports = {
   //connectionLimit: 10,
-   host: 'localhost',
+   host: '13.209.96.55',
                 port: '3306',
-                user: 'root',
+                user: 'y1909y',
                 password: 'ydidtkdals1!',
   database: 'nia'
 };
