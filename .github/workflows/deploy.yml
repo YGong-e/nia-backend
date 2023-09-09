@@ -40,7 +40,7 @@ jobs:
           yarn
 
       - name: zip file
-        run: zip -qq -r ./$GITHUB_SHA.zip . -x "node_modules/*"
+        run: zip -r hous.zip ./dist ./scripts ./appspec.yml ./.env ./package.json
 
       - name: AWS configure credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -49,12 +49,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-2
 
-      - name: upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://nia-bucket-ysm/$GITHUB_SHA.zip
+      - name: upload to S3 nia-bucket-ysm
+        run: aws s3 cp --region ap-northeast-2 ./hous.zip s3://$S3_BUCKET_NAME/deploy/
       - name: Deploy 
         run: | 
           aws deploy create-deployment \
           --deployment-config-name CodeDeployDefault.AllAtOnce \
           --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
           --deployment-group-name ${{ env.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME }} \
-          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$GITHUB_SHA.zip
+          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=deploy/hous.zip
