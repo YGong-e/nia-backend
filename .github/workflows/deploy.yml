@@ -40,7 +40,7 @@ jobs:
           yarn
 
       - name: zip file
-        run: zip -r hous.zip ./dist ./after-deploy.sh ./appspec.yml ./.env ./package.json
+        run: zip -qq -r ./hous.zip . -x "node_modules/*"
 
       - name: AWS configure credentials
         uses: aws-actions/configure-aws-credentials@v1
