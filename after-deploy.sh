@@ -3,6 +3,6 @@ REPOSITORY=/home/ubuntu/build
 
 cd $REPOSITORY
 
-sudo yarn
+sudo yarn install
 
-sudo pm2 start app.js
+sudo npx pm2 reload all .
