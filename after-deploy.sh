@@ -3,6 +3,6 @@ REPOSITORY=/home/ubuntu/build
 
 cd $REPOSITORY
 
-sudo yarn install
+sudo yarn
 
 sudo npx pm2 reload all .
