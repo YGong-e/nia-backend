@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  S3_BUCKET_NAME: nia-bucket-ysm
+  S3_BUCKET_NAME: nia-backend
   CODE_DEPLOY_APPLICATION_NAME: nia-front
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: nia-instance-front
 
