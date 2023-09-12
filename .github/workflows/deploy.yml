@@ -50,11 +50,11 @@ jobs:
           aws-region: ap-northeast-2
 
       - name: upload to S3 nia-bucket-ysm
-        run: aws s3 cp --region ap-northeast-2 ./hous.zip s3://$S3_BUCKET_NAME/deploy/
+        run: aws s3 cp --region ap-northeast-2 ./hous.zip s3://$S3_BUCKET_NAME/
       - name: Deploy 
         run: | 
           aws deploy create-deployment \
           --deployment-config-name CodeDeployDefault.AllAtOnce \
           --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
           --deployment-group-name ${{ env.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME }} \
-          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=deploy/hous.zip
+          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=hous.zip
