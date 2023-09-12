@@ -50,7 +50,7 @@ jobs:
           aws-region: ap-northeast-2
 
       - name: upload to S3 nia-bucket-ysm
-        run: aws s3 cp --region ap-northeast-2 ./hous.zip s3://nia-backend/hous.zip
+        run: aws s3 cp --region ap-northeast-2 ./hous.zip s3://nia-backend/
       - name: Deploy 
         run: | 
           aws deploy create-deployment \
